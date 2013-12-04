@@ -2,6 +2,10 @@
 <h3><%= @location.category %></h1>
 <h3><%= @location.neighborhood %></h1>
 
+<%= image_tag @location.image_url, width: "75%" %>
+
+<p><%= @location.review %> </p>
+
 <h3><a href="http://<%= @location.site_url %>" target="_blank">Website</a></h3>
 
 <p><%= link_to 'home', root_path %></p>

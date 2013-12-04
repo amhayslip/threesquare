@@ -28,11 +28,17 @@ class LocationsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def destroy
+		@location = Location.find(params[:id])
+		@location.destroy
+		redirect_to root_path
+	end
+
 
 
 	private
 	def location_params
-		params.require(:location).permit(:name, :category, :neighborhood, :site_url)
+		params.require(:location).permit(:name, :category, :neighborhood, :site_url, :image_url, :review)
 	end
 
 end
