@@ -5,8 +5,7 @@ class LocationsController < ApplicationController
 	end
 
 	def show
-		location_id = params[:id]
-		@location = Location.find_by_id(location_id)
+		@location = Location.find(params[:id])
 	end
 
 	def new
@@ -18,6 +17,18 @@ class LocationsController < ApplicationController
 		@location.save
 		redirect_to root_path
 	end
+
+	def edit
+		@location = Location.find(params[:id])
+	end
+
+	def update
+		@location = Location.find(params[:id])
+		@location.update(location_params)
+		redirect_to root_path
+	end
+
+
 
 	private
 	def location_params
