@@ -1,9 +1,13 @@
 Threesquare::Application.routes.draw do
 
-  get '/locations' => 'locations#show_all'
-
-
-
+  root 'locations#show_all'
+  get '/locations' => 'locations#show_all' 
+  get '/locations/new' => 'locations#new', as: 'new_location'
+  get '/locations/:id' => 'locations#show', as: 'location'
+  get '/locations/:id/edit' => 'locations#edit', as: 'edit_video'
+  post '/locations' => 'locations#create'
+  put '/locations/:id' => 'locations#update'
+  patch '/locations/:id' => 'locations#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
